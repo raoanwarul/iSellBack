@@ -14,10 +14,10 @@ const isLocalDev = typeof window !== 'undefined' && (
 export const PANEL_URLS = {
   admin: isLocalDev
     ? 'http://localhost:3000'
-    : (import.meta.env.VITE_ADMIN_PANEL_URL || 'https://control.buybackelite.com'),
+    : (import.meta.env.VITE_ADMIN_PANEL_URL || '/admin'),
   agent: isLocalDev
     ? 'http://localhost:3002'
-    : (import.meta.env.VITE_AGENT_PANEL_URL || 'https://field.buybackelite.com'),
+    : (import.meta.env.VITE_AGENT_PANEL_URL || '/agent'),
 }
 
 export const adminUrl = (path = '') => `${PANEL_URLS.admin}${path}`
