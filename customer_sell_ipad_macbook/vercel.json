@@ -1,18 +1,22 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
+  "buildCommand": "node build-panels.js",
+  "outputDirectory": "combined_dist",
+  "framework": null,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/admin/assets/(.*)", "destination": "/admin/assets/$1" },
+    { "source": "/admin/(.*)",        "destination": "/admin/index.html" },
+    { "source": "/agent/assets/(.*)", "destination": "/agent/assets/$1" },
+    { "source": "/agent/(.*)",        "destination": "/agent/index.html" },
+    { "source": "/(.*)",              "destination": "/index.html" }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+        { "key": "X-Frame-Options",        "value": "DENY" },
+        { "key": "X-XSS-Protection",       "value": "1; mode=block" },
+        { "key": "Cache-Control",          "value": "no-cache, no-store, must-revalidate" }
       ]
     }
   ]

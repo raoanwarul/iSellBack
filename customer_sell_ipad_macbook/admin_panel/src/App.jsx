@@ -63,7 +63,7 @@ function ProtectedRoute({ children }) {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.VITE_BASE_PATH || '/'}>
       <PageTitle />
       <Suspense fallback={<PageLoader />}>
         <Routes>
