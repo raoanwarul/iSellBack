@@ -1,0 +1,1743 @@
+[
+  {
+    "id": "TC001",
+    "title": "Login with email and password and reach dashboard",
+    "description": "Verifies an existing user can log in with email and password and access the dashboard.",
+    "category": "User Login (email/password)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user lands on the dashboard"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Sell a device end-to-end and see the new request appear in My Requests",
+    "description": "Verifies a user can complete the full sell flow including 4+ photos and pickup scheduling, submit successfully, and then see the new request in the requests list.",
+    "category": "Sell Device Flow",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/sell"
+      },
+      {
+        "type": "action",
+        "description": "Select a device type"
+      },
+      {
+        "type": "action",
+        "description": "Select a specific device model"
+      },
+      {
+        "type": "action",
+        "description": "Select a storage capacity option"
+      },
+      {
+        "type": "action",
+        "description": "Answer the screen condition question"
+      },
+      {
+        "type": "action",
+        "description": "Answer the body condition question"
+      },
+      {
+        "type": "action",
+        "description": "Toggle at least one functional issue option"
+      },
+      {
+        "type": "action",
+        "description": "Proceed to the photo upload step"
+      },
+      {
+        "type": "action",
+        "description": "Add a device photo from an available local image file"
+      },
+      {
+        "type": "action",
+        "description": "Add a second device photo from an available local image file"
+      },
+      {
+        "type": "action",
+        "description": "Add a third device photo from an available local image file"
+      },
+      {
+        "type": "action",
+        "description": "Add a fourth device photo from an available local image file"
+      },
+      {
+        "type": "action",
+        "description": "Proceed to the contact and pickup details step"
+      },
+      {
+        "type": "action",
+        "description": "Fill Test Seller into the full name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill a valid phone number into the phone field"
+      },
+      {
+        "type": "action",
+        "description": "Fill test.seller@example.com into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill a valid street address into the address line field"
+      },
+      {
+        "type": "action",
+        "description": "Fill Test City into the city field"
+      },
+      {
+        "type": "action",
+        "description": "Select a valid state/region option"
+      },
+      {
+        "type": "action",
+        "description": "Fill a valid postal code into the postal code field"
+      },
+      {
+        "type": "action",
+        "description": "Select a valid pickup date"
+      },
+      {
+        "type": "action",
+        "description": "Select a preferred pickup time slot"
+      },
+      {
+        "type": "action",
+        "description": "Fill Leave at front desk into the special instructions field"
+      },
+      {
+        "type": "action",
+        "description": "Proceed to the review step"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sell request"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/requests"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the requests list includes at least one request"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Register with email and password and reach dashboard",
+    "description": "Verifies a new user can register with valid details and is taken to the dashboard after submission.",
+    "category": "User Registration (email/password)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Fill New Test User into the full name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with test.user+reg1@example.com"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the confirm password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the registration form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user lands on the dashboard"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "View dashboard summary and start selling from quick action",
+    "description": "Verifies an authenticated user can view dashboard stats/recent requests and navigate into the sell device flow from the dashboard.",
+    "category": "Dashboard Home",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Click the quick action to start selling a device"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user lands on the sell device flow page"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "View request details from My Requests",
+    "description": "A signed-in user can open a sell request from the requests list and see the request detail view with key sections visible.",
+    "category": "Request Detail",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view all requests"
+      },
+      {
+        "type": "action",
+        "description": "Click a request card to open its details"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the request detail view shows device information, a status timeline, and payment status"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Open request detail from list and review key sections",
+    "description": "Verifies a user can open a request detail view and see device info, photo gallery, status timeline, and payment status sections.",
+    "category": "My Requests (Order History)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/requests"
+      },
+      {
+        "type": "action",
+        "description": "Click a request card to open its details"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify device details, a photo gallery, a status timeline, and payment status are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Add a saved pickup address",
+    "description": "A signed-in user can add a new saved pickup address and see it appear in the saved addresses list.",
+    "category": "User Profile & Settings",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to open the profile page"
+      },
+      {
+        "type": "action",
+        "description": "Start adding a new saved pickup address"
+      },
+      {
+        "type": "action",
+        "description": "Fill in valid address details in the address form"
+      },
+      {
+        "type": "action",
+        "description": "Save the address"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new address appears in the saved addresses list"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Update instant quote when condition or issue selections change",
+    "description": "Verifies the quoted price updates in the UI when the user changes condition answers or functional issue toggles during the sell flow.",
+    "category": "Sell Device Flow",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/sell"
+      },
+      {
+        "type": "action",
+        "description": "Select a device type"
+      },
+      {
+        "type": "action",
+        "description": "Select a specific device model"
+      },
+      {
+        "type": "action",
+        "description": "Select a storage capacity option"
+      },
+      {
+        "type": "action",
+        "description": "Answer the screen condition question with a higher-quality option"
+      },
+      {
+        "type": "action",
+        "description": "Answer the body condition question with a higher-quality option"
+      },
+      {
+        "type": "action",
+        "description": "Note the currently displayed instant quote value"
+      },
+      {
+        "type": "action",
+        "description": "Toggle on one functional issue option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the displayed instant quote value changes after the selection update"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Navigate from dashboard to requests list and open a request details page",
+    "description": "Verifies an authenticated user can go from the dashboard to the requests list and open a request detail view for a recent request.",
+    "category": "Dashboard Home",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Click the quick action to view all requests"
+      },
+      {
+        "type": "action",
+        "description": "Click a request from the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a request detail view is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Update profile name and phone number",
+    "description": "A signed-in user can edit their profile details and see the updated information reflected on the profile page.",
+    "category": "User Profile & Settings",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to open the profile page"
+      },
+      {
+        "type": "action",
+        "description": "Fill in updated text into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a valid phone number into the phone field"
+      },
+      {
+        "type": "action",
+        "description": "Save the profile changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the profile page shows the updated name and phone number"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Filter requests by status",
+    "description": "Verifies a user can filter the requests list by status and see the list update to match the selected filter.",
+    "category": "My Requests (Order History)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/requests"
+      },
+      {
+        "type": "action",
+        "description": "Select a non-default status filter option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify each visible request card shows a status consistent with the selected filter"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Return to requests list from Request Detail",
+    "description": "A signed-in user can navigate back from a request detail page to the requests list.",
+    "category": "Request Detail",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view all requests"
+      },
+      {
+        "type": "action",
+        "description": "Click a request card to open its details"
+      },
+      {
+        "type": "action",
+        "description": "Use the in-page back action to return to the previous view"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user is back on the requests list view"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC013",
+    "title": "Prevent submission when fewer than four photos are provided",
+    "description": "Verifies the sell flow blocks progression or submission when fewer than four photos are uploaded and shows a photo-count validation error.",
+    "category": "Sell Device Flow",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/sell"
+      },
+      {
+        "type": "action",
+        "description": "Select a device type"
+      },
+      {
+        "type": "action",
+        "description": "Select a specific device model"
+      },
+      {
+        "type": "action",
+        "description": "Select a storage capacity option"
+      },
+      {
+        "type": "action",
+        "description": "Answer the screen condition question"
+      },
+      {
+        "type": "action",
+        "description": "Answer the body condition question"
+      },
+      {
+        "type": "action",
+        "description": "Proceed to the photo upload step"
+      },
+      {
+        "type": "action",
+        "description": "Add a device photo from an available local image file"
+      },
+      {
+        "type": "action",
+        "description": "Add a second device photo from an available local image file"
+      },
+      {
+        "type": "action",
+        "description": "Add a third device photo from an available local image file"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to proceed past the photo requirement step"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation error is visible indicating at least four photos are required"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC014",
+    "title": "Enable browser notifications preference when permission is granted",
+    "description": "Verifies a logged-in user can grant browser notification permission, enable notifications in Profile, and sees the preference saved in the UI.",
+    "category": "Push Notifications (Browser)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/profile"
+      },
+      {
+        "type": "action",
+        "description": "Grant the browser notification permission when prompted"
+      },
+      {
+        "type": "action",
+        "description": "Enable the notifications preference"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify notifications are shown as enabled in the profile settings"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC015",
+    "title": "Edit an existing saved pickup address",
+    "description": "A signed-in user can edit a saved pickup address and see the changes reflected in the saved addresses list.",
+    "category": "User Profile & Settings",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to open the profile page"
+      },
+      {
+        "type": "action",
+        "description": "Start adding a new saved pickup address"
+      },
+      {
+        "type": "action",
+        "description": "Fill in valid address details in the address form"
+      },
+      {
+        "type": "action",
+        "description": "Save the address"
+      },
+      {
+        "type": "action",
+        "description": "Open the edit action for the saved address"
+      },
+      {
+        "type": "action",
+        "description": "Update the address details"
+      },
+      {
+        "type": "action",
+        "description": "Save the address changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the saved addresses list reflects the updated address details"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC016",
+    "title": "Review quote and price breakdown on Request Detail",
+    "description": "A signed-in user can view the quote information and price breakdown for a sell request on its detail page.",
+    "category": "Request Detail",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view all requests"
+      },
+      {
+        "type": "action",
+        "description": "Click a request card to open its details"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify quote details and a price breakdown section are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC017",
+    "title": "Track request progress on the status timeline",
+    "description": "A signed-in user can open a request and see its current progress represented in a status timeline.",
+    "category": "Request Detail",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view all requests"
+      },
+      {
+        "type": "action",
+        "description": "Click a request card to open its details"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a status timeline is displayed and indicates the request progress"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC018",
+    "title": "Delete a photo from the upload preview and re-add to meet minimum",
+    "description": "Verifies a user can remove an uploaded photo from the preview gallery and add another photo so the minimum requirement can still be satisfied.",
+    "category": "Sell Device Flow",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/sell"
+      },
+      {
+        "type": "action",
+        "description": "Select a device type"
+      },
+      {
+        "type": "action",
+        "description": "Select a specific device model"
+      },
+      {
+        "type": "action",
+        "description": "Select a storage capacity option"
+      },
+      {
+        "type": "action",
+        "description": "Answer the screen condition question"
+      },
+      {
+        "type": "action",
+        "description": "Answer the body condition question"
+      },
+      {
+        "type": "action",
+        "description": "Proceed to the photo upload step"
+      },
+      {
+        "type": "action",
+        "description": "Add four device photos from available local image files"
+      },
+      {
+        "type": "action",
+        "description": "Delete one photo from the upload preview"
+      },
+      {
+        "type": "action",
+        "description": "Add one additional device photo from an available local image file"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the photo preview gallery shows at least four photos uploaded"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC019",
+    "title": "Browse uploaded photos in request photo gallery",
+    "description": "A signed-in user can open a request and browse through uploaded device photos in the gallery.",
+    "category": "Request Detail",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view all requests"
+      },
+      {
+        "type": "action",
+        "description": "Click a request card to open its details"
+      },
+      {
+        "type": "action",
+        "description": "Interact with the photo gallery to view a different photo"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a device photo is displayed in the gallery viewer"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC020",
+    "title": "Submit account deletion request",
+    "description": "Verifies a visitor can submit an account deletion request and sees a confirmation that the request was received.",
+    "category": "Delete Account (Request)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /delete-account"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the request submission area"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with a valid email address"
+      },
+      {
+        "type": "action",
+        "description": "Submit the account deletion request form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a confirmation that the deletion request was received is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC021",
+    "title": "View assigned agent information and payment status",
+    "description": "A signed-in user can see assigned agent information (when present) and payment status for a request.",
+    "category": "Request Detail",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view all requests"
+      },
+      {
+        "type": "action",
+        "description": "Click a request card to open its details"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify assigned agent information and payment status sections are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC022",
+    "title": "Keep notifications disabled when permission is denied",
+    "description": "Verifies that denying browser notification permission prevents enabling notifications and the UI reflects that notifications are not enabled.",
+    "category": "Push Notifications (Browser)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/profile"
+      },
+      {
+        "type": "action",
+        "description": "Deny the browser notification permission when prompted"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to enable the notifications preference"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify notifications remain disabled in the profile settings"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC023",
+    "title": "Toggle notification preference",
+    "description": "A signed-in user can change notification preference on the profile page and see the preference saved.",
+    "category": "User Profile & Settings",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to open the profile page"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the notification preference setting"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the notification preference is shown as enabled or disabled consistent with the toggle"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC024",
+    "title": "Login shows invalid credentials error",
+    "description": "Verifies a user sees an invalid-credentials error when submitting a wrong password.",
+    "category": "User Login (email/password)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with wrong-password"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a login error message is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC025",
+    "title": "Persist enabled notifications preference after reload (permission granted)",
+    "description": "Verifies that after granting permission and enabling notifications, the preference remains enabled after a page reload.",
+    "category": "Push Notifications (Browser)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/profile"
+      },
+      {
+        "type": "action",
+        "description": "Grant the browser notification permission when prompted"
+      },
+      {
+        "type": "action",
+        "description": "Enable the notifications preference"
+      },
+      {
+        "type": "action",
+        "description": "Press F5 to reload the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify notifications are shown as enabled in the profile settings"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC026",
+    "title": "Initiate account deletion from Profile and submit request",
+    "description": "A signed-in user can initiate account deletion from profile, submit the deletion request, and see a confirmation state.",
+    "category": "User Profile & Settings",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to open the profile page"
+      },
+      {
+        "type": "action",
+        "description": "Click the delete account action to initiate deletion"
+      },
+      {
+        "type": "action",
+        "description": "Submit the account deletion request form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an account deletion confirmation is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC027",
+    "title": "Disable notifications preference after previously enabling (permission granted)",
+    "description": "Verifies that a user who has notifications enabled can disable the preference and the UI reflects the new disabled state.",
+    "category": "Push Notifications (Browser)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/profile"
+      },
+      {
+        "type": "action",
+        "description": "Grant the browser notification permission when prompted"
+      },
+      {
+        "type": "action",
+        "description": "Enable the notifications preference"
+      },
+      {
+        "type": "action",
+        "description": "Disable the notifications preference"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify notifications are shown as disabled in the profile settings"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC028",
+    "title": "Registration blocks invalid email format",
+    "description": "Verifies registration shows a validation error when the email format is invalid and does not proceed.",
+    "category": "User Registration (email/password)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /register"
+      },
+      {
+        "type": "action",
+        "description": "Fill New Test User into the full name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with invalid-email-format"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the confirm password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the registration form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an email validation error is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC029",
+    "title": "Show empty state when search or filter yields no results",
+    "description": "Verifies the requests list shows a no-results empty state when the user enters criteria that match no requests.",
+    "category": "My Requests (Order History)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/requests"
+      },
+      {
+        "type": "action",
+        "description": "Fill a unique search value into the search field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a no-results empty state is displayed for the requests list"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC030",
+    "title": "Validation shown when submitting deletion request with empty required fields",
+    "description": "Verifies the deletion request form prevents submission with missing required information and shows validation feedback.",
+    "category": "Delete Account (Request)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /delete-account"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the request submission area"
+      },
+      {
+        "type": "action",
+        "description": "Submit the account deletion request form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify required-field validation feedback is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC031",
+    "title": "Show prompt guidance when notifications are enabled without prior permission decision",
+    "description": "Verifies that attempting to enable notifications triggers a browser permission prompt or shows guidance to allow notifications so the user can complete setup.",
+    "category": "Push Notifications (Browser)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_USER}} into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill {{LOGIN_PASSWORD}} into the password field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard/profile"
+      },
+      {
+        "type": "action",
+        "description": "Enable the notifications preference"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a browser permission prompt is shown or in-app guidance to allow notifications is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC032",
+    "title": "Navigate landing page FAQ and start registration",
+    "description": "Verifies a prospect can read an FAQ answer and use the primary CTA to reach the registration page.",
+    "category": "Landing Page",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the FAQ section"
+      },
+      {
+        "type": "action",
+        "description": "Expand an FAQ accordion item"
+      },
+      {
+        "type": "action",
+        "description": "Click the primary get-started call to action"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the registration page is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC033",
+    "title": "Validation shown for invalid email format on deletion request",
+    "description": "Verifies the deletion request form shows an email format validation error when the email is invalid.",
+    "category": "Delete Account (Request)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /delete-account"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the request submission area"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with an invalid email format"
+      },
+      {
+        "type": "action",
+        "description": "Submit the account deletion request form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an email validation error is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC034",
+    "title": "Read privacy policy content",
+    "description": "Verifies a visitor can open the privacy policy page and see the policy content displayed.",
+    "category": "Privacy Policy (Static)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /privacy-policy"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the middle of the page"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify privacy policy content sections are displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC035",
+    "title": "Read terms of service content",
+    "description": "Verifies a visitor can open the terms of service page and see the terms content displayed.",
+    "category": "Terms of Service (Static)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /terms-of-service"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the middle of the page"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify terms of service content sections are displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC036",
+    "title": "Deletion request page displays information about the process",
+    "description": "Verifies the deletion request page shows account deletion information content so users understand the process before submitting.",
+    "category": "Delete Account (Request)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /delete-account"
+      },
+      {
+        "type": "action",
+        "description": "Scroll through the information section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify account deletion information content is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC037",
+    "title": "Use mobile navigation to reach About page",
+    "description": "Verifies a prospect can open the mobile navigation menu and navigate to the About page.",
+    "category": "Landing Page",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Press the mobile hamburger navigation control"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the About page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the About Us page is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC038",
+    "title": "View About Us company information and store location",
+    "description": "A guest can open the About Us page and see company information along with store location details.",
+    "category": "About Us (Static)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /about-us"
+      },
+      {
+        "type": "action",
+        "description": "Scroll through the page content"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify company information and store location details are displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC039",
+    "title": "Reach privacy policy page from landing page footer",
+    "description": "Verifies a visitor can navigate from the landing page to the privacy policy page using site navigation and see the policy content.",
+    "category": "Privacy Policy (Static)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the footer area"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to open the privacy policy page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify privacy policy content sections are displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC040",
+    "title": "Reach terms of service page from landing page footer",
+    "description": "Verifies a visitor can navigate from the landing page to the terms of service page using site navigation and see the terms content.",
+    "category": "Terms of Service (Static)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the footer area"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to open the terms of service page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify terms of service content sections are displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC041",
+    "title": "Browse app showcase screenshot slider",
+    "description": "Verifies a prospect can navigate the app screenshot slider and see the showcased screenshots change.",
+    "category": "Landing Page",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the app showcase section"
+      },
+      {
+        "type": "action",
+        "description": "Click the slider next control"
+      },
+      {
+        "type": "action",
+        "description": "Click the slider previous control"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an app showcase screenshot is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC042",
+    "title": "Use About Us contact links",
+    "description": "A guest can interact with the About Us contact methods to initiate contact from the browser.",
+    "category": "About Us (Static)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /about-us"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the contact section"
+      },
+      {
+        "type": "action",
+        "description": "Click the contact phone number or email link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the browser attempts to open a contact method using a phone or email handler"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC043",
+    "title": "Verify privacy policy page renders on small viewport",
+    "description": "Verifies the privacy policy page remains usable on a small viewport by allowing scrolling and displaying the content.",
+    "category": "Privacy Policy (Static)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /privacy-policy"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the page"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the top of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify privacy policy content sections are displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC044",
+    "title": "Verify terms of service page renders on small viewport",
+    "description": "Verifies the terms of service page remains usable on a small viewport by allowing scrolling and displaying the content.",
+    "category": "Terms of Service (Static)",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /terms-of-service"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the page"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the top of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify terms of service content sections are displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC045",
+    "title": "Navigate to key static pages from footer",
+    "description": "Verifies a prospect can reach Privacy Policy and Terms of Service from landing page footer links.",
+    "category": "Landing Page",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the footer"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the Privacy Policy page"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the footer"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the Terms of Service page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Terms of Service page is displayed"
+      }
+    ],
+    "priority": "Low"
+  }
+]

@@ -1,0 +1,3 @@
+# Agent Panel - Block all indexing
+User-agent: *
+Disallow: /

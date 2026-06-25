@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Production build
+dist/
+**/dist/
+
+# Flutter build artifacts
+build/
+**/build/
+.dart_tool/
+**/.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+android/app/build/
+**/android/app/build/
+ios/Pods/
+**/ios/Pods/
+
+# OS files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+**/Thumbs.db
+
+# Log files
+*.log
+npm-debug.log*
+
+# Local backup of inner git repositories
+.git_backup
+**/.git_backup/
+
+# Secret key folders — Firebase/Google credentials
+Firebase notificaiton and screenshot services file for backup google drive setup files/
+Secret key firebase notification and google cloud console/
+
+# APK files — too large for GitHub (use releases instead)
+APKs/
+*.apk
+**/*.apk
+
+# Environment variable docs with secrets
+VERCEL_ENV_VARIABLES.md
+**/VERCEL_ENV_VARIABLES.md
+
+# Firebase service account keys
+*-firebase-adminsdk-*.json
+firebase-adminsdk*.json
+google-services*.json
+google-services *.json
+
+# Google OAuth client secrets
+client_secret_*.json
+
+# Supabase env / secrets — all real .env files (not .env.example)
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+!.env.example
+supabase/.env
+
+# Backup env files with real credentials
+_backup/env/*.env
+**/SUPABASE_SECRETS.env

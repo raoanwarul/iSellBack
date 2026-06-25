@@ -1,0 +1,10 @@
+# BuyBack Elite - Robots.txt
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /register
+
+# Block admin and agent paths
+Disallow: /infra-control/
+Disallow: /field-tech/

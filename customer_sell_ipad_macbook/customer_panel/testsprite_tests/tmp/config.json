@@ -1,0 +1,20 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3001",
+  "loginUser": "customer@gmail.com",
+  "loginPassword": "test123",
+  "executionArgs": {
+    "projectName": "customer_panel",
+    "projectPath": "d:\\vs code macbook ipad join after expired the windsurf\\customer_sell_ipad_macbook\\customer_panel",
+    "testIds": [],
+    "additionalInstruction": "The app is a device buyback platform. Test login credentials: email test@buybackelite.com password Test@12345. The app uses Supabase for auth and backend. Focus on landing page UI, navigation, login/register forms, and authenticated dashboard flows.",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user-cOJaIUGKmhLIhFbxHZHPIo7a9OYY0nYu8f8P1ZQ9gyPGVKSTdI72EfgXbgINEkmo7dROUzgFrDx4rkGMQlTcU5THrsqZrGGcfVSYsLuVGO_gk-786y3TU3Qg2wc7bsGIBmc"
+    }
+  },
+  "serverPort": 63915,
+  "proxy": "http://bcdac066-0d1f-4b2c-9e95-d667e3087655:N03iGFhP6FOLnzyc2WTmH5a8Ei6UX0VX@tun.testsprite.com:8080"
+}

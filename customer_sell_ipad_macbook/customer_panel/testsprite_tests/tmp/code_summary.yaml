@@ -1,0 +1,293 @@
+version: "2"
+type: frontend
+tech_stack:
+  - javascript
+  - react
+  - vite
+  - tailwindcss
+  - zustand
+  - supabase
+  - firebase
+  - react-router-dom
+  - lucide-react
+routes:
+  - path: /
+    file: src/pages/LandingPage.jsx
+    auth_required: false
+    description: Public landing page with hero, features, how it works, pricing, app showcase, FAQ, store location, and footer sections
+  - path: /login
+    file: src/pages/Login.jsx
+    auth_required: false
+    description: User login page with email/password and Google OAuth sign-in
+  - path: /register
+    file: src/pages/Register.jsx
+    auth_required: false
+    description: User registration page with email/password and Google OAuth sign-up
+  - path: /privacy-policy
+    file: src/pages/PrivacyPolicy.jsx
+    auth_required: false
+    description: Privacy policy static page
+  - path: /terms-of-service
+    file: src/pages/TermsOfService.jsx
+    auth_required: false
+    description: Terms of service static page
+  - path: /about-us
+    file: src/pages/AboutUs.jsx
+    auth_required: false
+    description: About us page with company info and store location
+  - path: /delete-account
+    file: src/pages/DeleteAccount.jsx
+    auth_required: false
+    description: Account deletion request page
+  - path: /dashboard
+    file: src/pages/Home.jsx
+    auth_required: true
+    description: User dashboard with stats, recent requests, and quick actions
+  - path: /dashboard/sell
+    file: src/pages/SellDevice.jsx
+    auth_required: true
+    description: Multi-step sell device flow - select device, condition check, photo upload, scheduling, and submission
+  - path: /dashboard/requests
+    file: src/pages/MyRequests.jsx
+    auth_required: true
+    description: List of all user sell requests with status filtering
+  - path: /dashboard/requests/:id
+    file: src/pages/RequestDetail.jsx
+    auth_required: true
+    description: Detailed view of a single sell request with status timeline and agent tracking
+  - path: /dashboard/profile
+    file: src/pages/Profile.jsx
+    auth_required: true
+    description: User profile page with edit info, saved addresses, and account settings
+features:
+  - name: Landing Page
+    description: Public-facing marketing page with navigation, hero section, features, how it works, pricing, app screenshot slider, FAQ accordion, store location, and footer
+    files:
+      - src/pages/LandingPage.jsx
+      - src/index.css
+    entry_route: /
+    user_interactions:
+      - Scroll through page sections with reveal animations
+      - Click navigation links (Features, How It Works, Pricing, FAQ)
+      - Open mobile hamburger menu on small screens
+      - Click Get Started or Sell Now CTA buttons
+      - Navigate screenshot slider with left/right arrow buttons
+      - Expand and collapse FAQ accordion items
+      - Click Download on Google Play button
+      - Click footer links to navigate to static pages
+    api_calls: []
+    auth_required: false
+  - name: User Registration
+    description: Create a new account with email/password or Google OAuth
+    files:
+      - src/pages/Register.jsx
+      - src/store/useStore.js
+    entry_route: /register
+    user_interactions:
+      - Fill in full name input field
+      - Fill in email input field
+      - Fill in password input field
+      - Fill in confirm password input field
+      - Click Register button to submit form
+      - Click Google Sign-In button for OAuth registration
+      - Click Login link to navigate to login page
+      - See validation error messages for invalid inputs
+    api_calls:
+      - method: POST
+        endpoint: supabase.auth.signUp
+      - method: POST
+        endpoint: supabase.from('users').upsert
+    auth_required: false
+  - name: User Login
+    description: Sign in with email/password or Google OAuth, includes forgot password flow
+    files:
+      - src/pages/Login.jsx
+      - src/store/useStore.js
+    entry_route: /login
+    user_interactions:
+      - Fill in email input field
+      - Fill in password input field
+      - Click Login button to submit
+      - Click Google Sign-In button for OAuth login
+      - Click Forgot Password link to toggle reset mode
+      - Enter email for password reset
+      - Click Send Reset Link button
+      - See error message on invalid credentials
+      - Click Register link to navigate to registration page
+    api_calls:
+      - method: POST
+        endpoint: supabase.auth.signInWithPassword
+      - method: POST
+        endpoint: supabase.auth.signInWithOAuth
+      - method: POST
+        endpoint: supabase.auth.resetPasswordForEmail
+    auth_required: false
+  - name: Dashboard Home
+    description: Authenticated user dashboard showing welcome banner, stats cards, recent sell requests, and quick action buttons
+    files:
+      - src/pages/Home.jsx
+      - src/store/useStore.js
+      - src/components/Layout.jsx
+    entry_route: /dashboard
+    user_interactions:
+      - View welcome message with user name
+      - View stat cards (total requests, pending, completed)
+      - Click on recent sell request to view details
+      - Click Sell Device quick action button
+      - Click View All Requests button
+      - Use mobile bottom tab navigation
+      - Click hamburger menu on mobile to open sidebar
+    api_calls:
+      - method: GET
+        endpoint: supabase.from('sell_requests').select
+    auth_required: true
+  - name: Sell Device Flow
+    description: Multi-step flow to sell a device - select type, model, storage, answer condition questions, upload photos, enter personal info, schedule pickup, and submit
+    files:
+      - src/pages/SellDevice.jsx
+      - src/store/useStore.js
+    entry_route: /dashboard/sell
+    user_interactions:
+      - Select device type (MacBook or iPad)
+      - Select specific device model from list
+      - Select storage capacity option
+      - Answer screen condition question (Perfect, Minor Scratches, Cracked, Damaged)
+      - Answer body condition question (Like New, Light Wear, Damaged)
+      - Toggle functional issue checkboxes
+      - View calculated instant price quote
+      - Upload device photos (minimum 4 photos required)
+      - Take photo with camera or select from gallery
+      - Preview uploaded photos and delete if needed
+      - Enter full name, phone number, email
+      - Enter pickup address details
+      - Select pickup date from calendar
+      - Select preferred time slot
+      - Add optional special instructions
+      - Review order summary
+      - Click Submit to create sell request
+      - Navigate between steps using Next/Back buttons
+    api_calls:
+      - method: POST
+        endpoint: supabase.storage.from('device-photos').upload
+      - method: GET
+        endpoint: supabase.storage.from('device-photos').getPublicUrl
+      - method: POST
+        endpoint: supabase.from('users').upsert
+      - method: POST
+        endpoint: supabase.from('sell_requests').insert
+    auth_required: true
+  - name: My Requests
+    description: View list of all sell requests with status filtering and search
+    files:
+      - src/pages/MyRequests.jsx
+      - src/store/useStore.js
+    entry_route: /dashboard/requests
+    user_interactions:
+      - View list of all sell requests
+      - Filter requests by status (All, Pending, Reviewing, Scheduled, Completed)
+      - Click on a request card to view details
+      - See device name, model, price, and status badge on each card
+    api_calls:
+      - method: GET
+        endpoint: supabase.from('sell_requests').select
+    auth_required: true
+  - name: Request Detail
+    description: Detailed view of a sell request with device info, photos, status timeline, agent tracking, and payment info
+    files:
+      - src/pages/RequestDetail.jsx
+      - src/store/useStore.js
+    entry_route: /dashboard/requests/:id
+    user_interactions:
+      - View full device information and specifications
+      - Browse uploaded device photos in gallery
+      - View price breakdown and quote details
+      - Track status progress on timeline
+      - View assigned agent information
+      - See agent live location tracking on map
+      - View payment status and method
+      - Click back button to return to requests list
+    api_calls:
+      - method: GET
+        endpoint: supabase.from('sell_requests').select
+    auth_required: true
+  - name: User Profile
+    description: View and edit user profile, manage addresses, change password, delete account
+    files:
+      - src/pages/Profile.jsx
+      - src/store/useStore.js
+    entry_route: /dashboard/profile
+    user_interactions:
+      - View current profile information
+      - Edit name, email, phone number
+      - Save updated profile information
+      - Manage saved pickup addresses
+      - Change password
+      - Toggle notification preferences
+      - Click Delete Account to initiate deletion
+    api_calls:
+      - method: PUT
+        endpoint: supabase.from('users').update
+    auth_required: true
+  - name: About Us
+    description: Static page with company information, mission, and physical store details
+    files:
+      - src/pages/AboutUs.jsx
+    entry_route: /about-us
+    user_interactions:
+      - Scroll through company information
+      - View store location and address
+      - Click contact phone number or email
+    api_calls: []
+    auth_required: false
+  - name: Privacy Policy
+    description: Static page displaying privacy policy
+    files:
+      - src/pages/PrivacyPolicy.jsx
+    entry_route: /privacy-policy
+    user_interactions:
+      - Read privacy policy content
+      - Scroll through sections
+    api_calls: []
+    auth_required: false
+  - name: Terms of Service
+    description: Static page displaying terms of service
+    files:
+      - src/pages/TermsOfService.jsx
+    entry_route: /terms-of-service
+    user_interactions:
+      - Read terms of service content
+      - Scroll through sections
+    api_calls: []
+    auth_required: false
+  - name: Delete Account
+    description: Account deletion request page
+    files:
+      - src/pages/DeleteAccount.jsx
+    entry_route: /delete-account
+    user_interactions:
+      - Read account deletion information
+      - Submit account deletion request
+    api_calls: []
+    auth_required: false
+  - name: Push Notifications
+    description: Firebase Cloud Messaging integration for real-time notifications on sell request status changes
+    files:
+      - src/lib/firebase.js
+    entry_route: null
+    user_interactions:
+      - Receive browser notification on sell request status update
+      - Grant or deny notification permission
+    api_calls:
+      - method: POST
+        endpoint: supabase.from('fcm_tokens').upsert
+    auth_required: true
+known_limitations:
+  - issue: Agent live tracking requires agent app to be actively sharing location
+    location: src/pages/RequestDetail.jsx
+    impact: Map tracking may show stale location if agent app is not running
+  - issue: Photo upload relies on Supabase storage bucket being configured
+    location: src/store/useStore.js
+    impact: Photo uploads will fail if device-photos bucket does not exist in Supabase
+  - issue: Google OAuth requires proper redirect URL configuration in Supabase
+    location: src/store/useStore.js
+    impact: Google Sign-In will fail if redirect URL is not whitelisted
